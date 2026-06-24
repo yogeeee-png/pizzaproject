@@ -1,0 +1,326 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2026-06-21T13:30:37.650Z",
+        "line": 32,
+        "name": "Validate Pizzahut pizza order flow",
+        "description": "",
+        "id": "pizza-hut-order-flow;validate-pizzahut-pizza-order-flow;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 317904300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "hooks.Hooks.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 2479128000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User launch Pizzahut application with \"https://www.pizzahut.co.in/\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://www.pizzahut.co.in/\"",
+                  "offset": 38
+                }
+              ],
+              "location": "stepdefinitions.PizzaHutSteps.launchApplication(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "User wait for auto location black pop up screen",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.waitForPopup()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1600100,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User close the pop up screen",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.closePopup()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3329415200,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User see pop up for delivery asking for enter location",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.validateLocationPopup()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3323592300,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "User type address as \"GVJF+38W, Sangamvadi, Pune, Maharashtra 411001\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"GVJF+38W, Sangamvadi, Pune, Maharashtra 411001\"",
+                  "offset": 21
+                }
+              ],
+              "location": "stepdefinitions.PizzaHutSteps.enterAddress(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression //span[text()\u003d\u0027GVJF+38W, Sangamvadi, Pune, Maharashtra 411001\u0027)] because of the following error:\nSyntaxError: Failed to execute \u0027evaluate\u0027 on \u0027Document\u0027: The string \u0027//span[text()\u003d\u0027GVJF+38W, Sangamvadi, Pune, Maharashtra 411001\u0027)]\u0027 is not a valid XPath expression.\n  (Session info: chrome\u003d149.0.7827.156)\nFor documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception\nBuild info: version: \u00274.33.0\u0027, revision: \u00272c6aaad03a\u0027\nSystem info: os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.12\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [09b205a050db2f12d090642ba11a6d28, findElement {using\u003dxpath, value\u003d//span[text()\u003d\u0027GVJF+38W, Sangamvadi, Pune, Maharashtra 411001\u0027)]}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.156, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\\Users\\User\\AppData\\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61672}, goog:processID: 21780, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61672/devtoo..., se:cdpVersion: 149.0.7827.156, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}\nSession ID: 09b205a050db2f12d090642ba11a6d28\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)\r\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)\r\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:190)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:627)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:624)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)\r\n\tat pages.HomePage.selectFirstSuggestion(HomePage.java:53)\r\n\tat stepdefinitions.PizzaHutSteps.selectAddress(PizzaHutSteps.java:50)\r\n\tat ✽.User select first auto populate drop down option(file:///C:/Users/User/eclipse-workspace/PizzaHutAutomation/src/test/resources/features/pizzahut.feature:11)\r\n",
+              "duration": 57880400,
+              "status": "failed"
+            },
+            "line": 11,
+            "name": "User select first auto populate drop down option",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.selectAddress()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 998900,
+              "status": "skipped"
+            },
+            "line": 12,
+            "name": "User navigate to deails page",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.navigateToDetailsPage()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1995000,
+              "status": "skipped"
+            },
+            "line": 13,
+            "name": "User validate vegetarian radio button flag is off",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.validateVegToggle()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 14,
+            "name": "User clicks on Pizzas menu bar option",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.clickPizzaMenu()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 15,
+            "name": "User select add button of any pizza from Recommended",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.addPizza()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 965000,
+              "status": "skipped"
+            },
+            "line": 16,
+            "name": "User see that the pizza is getting added under Your Basket",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.validateBasket()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 17,
+            "name": "User validate pizza price plus Tax is checkout price",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.validatePrice()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 18,
+            "name": "User validate checkout button contains Item count",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.validateItemCount()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 19,
+            "name": "User validate checkout button contains total price count",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.validateTotalPrice()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 997100,
+              "status": "skipped"
+            },
+            "line": 20,
+            "name": "User clicks on Drinks option",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.clickDrinks()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2584400,
+              "status": "skipped"
+            },
+            "line": 21,
+            "name": "User select Pepsi option to add into the Basket",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.addPepsi()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 22,
+            "name": "User see 2 items are showing under checkout button",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.validateTwoItems()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 998000,
+              "status": "skipped"
+            },
+            "line": 23,
+            "name": "User see total price is now more than before",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.validatePriceIncrease()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 24,
+            "name": "User remove the Pizza item from Basket",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.removePizza()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 25,
+            "name": "see Price tag got removed from the checkout button",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.validatePriceRemoved()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 26,
+            "name": "User see 1 item showing in checkout button",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.validateOneItem()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 27,
+            "name": "User Clicks on Checkout button",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.clickCheckout()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 28,
+            "name": "User see minimum order required pop up is getting displayed",
+            "match": {
+              "location": "stepdefinitions.PizzaHutSteps.validateMinimumOrderPopup()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Smoke"
+          }
+        ]
+      }
+    ],
+    "name": "Pizza Hut Order Flow",
+    "description": "",
+    "id": "pizza-hut-order-flow",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/pizzahut.feature",
+    "tags": [
+      {
+        "name": "@Smoke",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]
