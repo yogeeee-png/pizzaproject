@@ -12,62 +12,52 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
 
-    WebDriver driver;
+	WebDriver driver;
 
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
+	public HomePage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
 
-    @FindBy(xpath = "//input[contains(@placeholder,'location')]")
-    WebElement locationTextbox;
+	@FindBy(xpath = "//input[contains(@placeholder,'location')]")
+	WebElement locationTextbox;
 
-    public void waitForLocationPopup() {
-    }
+	public void waitForLocationPopup() {
+	}
 
-    public void closePopup() {
-    }
+	public void closePopup() {
+	}
 
-    public boolean isLocationPopupDisplayed() {
-        return locationTextbox.isDisplayed();
-    }
+	public boolean isLocationPopupDisplayed() {
+		return locationTextbox.isDisplayed();
+	}
 
-    public void enterLocation(String location) {
+	public void enterLocation(String location) {
 
-        locationTextbox.clear();
-        locationTextbox.sendKeys(location);
+		locationTextbox.clear();
+		locationTextbox.sendKeys(location);
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 
-    public void selectFirstSuggestion() {
+	public void selectFirstSuggestion() throws InterruptedException {
 
-        WebDriverWait wait =
-                new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-        WebElement suggestion =
-                wait.until(ExpectedConditions.elementToBeClickable(
-                        By.xpath("//span[text()='GVJF+38W, Sangamvadi, Pune, Maharashtra 411001')]")));
+		WebElement suggestion = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@data-item-type='link']/following-sibling::button[@role='option'][1]")));
 
-        System.out.println("Suggestion text = "
-                + suggestion.getText());
+		System.out.println("Suggestion text = " + suggestion.getText());
 
-        suggestion.click();
+		suggestion.click();
 
-        System.out.println("Address suggestion clicked");
+		System.out.println("Address suggestion clicked");
+		Thread.sleep(2000);
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+		System.out.println("URL after click = " + driver.getCurrentUrl());
+	}
 
-        System.out.println("URL after click = "
-                + driver.getCurrentUrl());
-    }
- 
 }

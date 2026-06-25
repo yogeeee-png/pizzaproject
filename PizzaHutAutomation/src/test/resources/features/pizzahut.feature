@@ -29,4 +29,4 @@ And User see minimum order required pop up is getting displayed
 
 Examples:
 | URL | Location |
-| https://www.pizzahut.co.in/ | GVJF+38W, Sangamvadi, Pune, Maharashtra 411001 |
+| https://www.pizzahut.co.in/ | Pune Railway Station |

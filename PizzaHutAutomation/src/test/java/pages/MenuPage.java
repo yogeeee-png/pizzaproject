@@ -2,8 +2,10 @@ package pages;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class MenuPage {
 
     WebDriver driver;
+    WebDriverWait wait;
 
     public MenuPage(WebDriver driver) {
 
@@ -19,56 +22,39 @@ public class MenuPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath="//span[@class='rounded-full bg-white']")
+    @FindBy(xpath="//div[@class='hidden 2xl:flex w-full']//span[@class='rounded-full bg-white']")
     WebElement toggle;
 
-    @FindBy(xpath="//a[contains(.,'Pizzas')]")
+    @FindBy(xpath="//a[@class='typography-4 side-menu__link side-menu__link--pizzas text-white lg:text-black  capitalize lg:border-r']")
     WebElement pizza;
+    
+    @FindBy(xpath="//button[@data-synth='button--veggie-feast-recommended-pan-personal--one-tap']//span[contains(text(),'Add')]")
+    WebElement addPizza;
+    
+    @FindBy(xpath="(//div[text()='Veggie Feast'])[1]")
+    WebElement recommedPizza;
+
 
     public void clickVeg() {
+    	wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(toggle));
         toggle.click();
     }
 
     public void clickPizza() {
 
-        System.out.println("Current URL : "
-                + driver.getCurrentUrl());
-
-        System.out.println("Contains Pizzas text : "
-                + driver.getPageSource().contains("Pizzas"));
-
-        WebDriverWait wait =
-                new WebDriverWait(driver, Duration.ofSeconds(30));
-
-        WebElement pizzaTab = wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        org.openqa.selenium.By.xpath(
-                                "//a[contains(.,'Pizzas')]")));
-
+        System.out.println("Current URL : "+ driver.getCurrentUrl());
+        wait =new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebElement pizzaTab = wait.until(ExpectedConditions.elementToBeClickable(pizza));
         pizzaTab.click();
     }
-    public boolean isVegToggleOn() {
-
-        try {
-
-            WebDriverWait wait =
-                    new WebDriverWait(driver, Duration.ofSeconds(20));
-
-            wait.until(ExpectedConditions.visibilityOf(toggle));
-
-            return toggle.isDisplayed();
-
-        } catch (Exception e) {
-
-            return false;
-        }
+    public void Addpizza() {
+    	WebElement recommended=driver.findElement(By.xpath("//h2[text()='supreme']"));
+    	new Actions(driver).scrollToElement(recommended).perform();
+    	addPizza.click();
     }
-   
-    public boolean isMenuPageDisplayed() {
-
-        System.out.println("Current URL : "
-                + driver.getCurrentUrl());
-
-        return driver.getCurrentUrl().contains("order");
+    
+    public void getRecommedPizza() {
+    	recommedPizza.getText();
     }
     }

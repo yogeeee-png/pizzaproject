@@ -46,7 +46,7 @@ public class PizzaHutSteps {
     }
 
     @Then("User select first auto populate drop down option")
-    public void selectAddress() {
+    public void selectAddress() throws InterruptedException {
         homePage.selectFirstSuggestion();
     }
 
@@ -56,6 +56,7 @@ public class PizzaHutSteps {
 
     @Then("User validate vegetarian radio button flag is off")
     public void validateVegToggle() {
+    	menuPage.clickVeg();
     }
 
     @Then("User clicks on Pizzas menu bar option")
@@ -65,6 +66,7 @@ public class PizzaHutSteps {
 
     @When("User select add button of any pizza from Recommended")
     public void addPizza() {
+    	menuPage.Addpizza();
     }
 
     @Then("User see that the pizza is getting added under Your Basket")
