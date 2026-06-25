@@ -28,11 +28,16 @@ public class MenuPage {
     @FindBy(xpath="//a[@class='typography-4 side-menu__link side-menu__link--pizzas text-white lg:text-black  capitalize lg:border-r']")
     WebElement pizza;
     
-    @FindBy(xpath="//button[@data-synth='button--veggie-feast-recommended-pan-personal--one-tap']//span[contains(text(),'Add')]")
-    WebElement addPizza;
+    @FindBy(xpath="//h2[text()='supreme']")
+    WebElement recommendedsection;
     
     @FindBy(xpath="(//div[text()='Veggie Feast'])[1]")
     WebElement recommedPizza;
+    
+    @FindBy(xpath="//button[@data-synth='button--veggie-feast-recommended-pan-personal--one-tap']//span[contains(text(),'Add')]")
+    WebElement addPizza;
+    
+
 
 
     public void clickVeg() {
@@ -48,13 +53,18 @@ public class MenuPage {
         WebElement pizzaTab = wait.until(ExpectedConditions.elementToBeClickable(pizza));
         pizzaTab.click();
     }
+    
+    public void ScrollRecommended() {
+    	new Actions(driver).scrollToElement(recommendedsection).perform();
+    }
+    public String Pizzname() {
+    	return recommedPizza.getText();
+    }
+    
     public void Addpizza() {
-    	WebElement recommended=driver.findElement(By.xpath("//h2[text()='supreme']"));
-    	new Actions(driver).scrollToElement(recommended).perform();
+    	wait.until(ExpectedConditions.elementToBeClickable(addPizza));
     	addPizza.click();
     }
     
-    public void getRecommedPizza() {
-    	recommedPizza.getText();
-    }
+   
     }

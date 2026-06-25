@@ -66,6 +66,7 @@ public class PizzaHutSteps {
 
     @When("User select add button of any pizza from Recommended")
     public void addPizza() {
+    	menuPage.ScrollRecommended();
     	menuPage.Addpizza();
     }
 
