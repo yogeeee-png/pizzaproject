@@ -3,6 +3,7 @@ package pages;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,7 +22,12 @@ public class HomePage {
 
 	@FindBy(xpath = "//input[contains(@placeholder,'location')]")
 	WebElement locationTextbox;
-
+	@FindBy(xpath="//p[@class='typography-2 mb-40 text-center']/span")
+	WebElement ordertimepage;
+	
+	@FindBy(xpath="//button[@class='button button--secondary text-center']//span")
+	WebElement startOrder;
+	
 	public void waitForLocationPopup() {
 	}
 
@@ -58,6 +64,13 @@ public class HomePage {
 		Thread.sleep(2000);
 
 		System.out.println("URL after click = " + driver.getCurrentUrl());
+	}
+	public void whattimeWouldPageDisplayed() {
+			if(ordertimepage.isDisplayed()) {
+				startOrder.click();
+			}else {
+				System.out.println("continue");
+			}
 	}
 
 }
